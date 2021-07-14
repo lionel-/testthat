@@ -182,7 +182,7 @@ test_code <- function(test, code, env = test_env(), reporter = get_reporter(), s
     signalCondition(e)
   }
 
-  test_env <- new.env(parent = env)
+  test_env <- env(env, .error_call = NULL)
   old <- options(rlang_trace_top_env = test_env)[[1]]
   on.exit(options(rlang_trace_top_env = old), add = TRUE)
 
